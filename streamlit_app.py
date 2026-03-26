@@ -36,5 +36,8 @@ if ingredients_list:
         st.success('Your Smoothie is Ordered!', icon="✅")
 
 import requests  
-smoothiefroot_response = requests.get("[https://my.smoothiefroot.com/api/fruit/watermelon](https://my.smoothiefroot.com/api/fruit/watermelon)")  
-st.text(smoothiefroot_response)
+# FIXED URL: Removed the Markdown formatting brackets and parentheses
+smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/watermelon")  
+
+# Display the actual data from the response instead of just the response code
+st.dataframe(smoothiefroot_response.json())
